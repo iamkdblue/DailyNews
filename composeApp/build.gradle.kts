@@ -61,6 +61,11 @@ kotlin {
 
             //voyager = screen navigation
             implementation(libs.voyager.navigator)
+
+            //koin
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose.multiplatform)
+
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
