@@ -1,4 +1,4 @@
-package application
+package ui
 
 data class ArticlesState(
     val articles: List<Article> = listOf(),

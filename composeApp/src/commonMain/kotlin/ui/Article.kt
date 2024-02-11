@@ -1,4 +1,4 @@
-package application
+package ui
 
 data class Article(
     val title: String,
