@@ -57,6 +57,9 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.datetime)
+
+            //voyager = screen navigation
+            implementation(libs.voyager.navigator)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

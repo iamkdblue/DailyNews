@@ -1,5 +1,7 @@
-import application.Article
-import application.ArticlesState
+package ui.article
+
+import ui.Article
+import ui.ArticlesState
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
