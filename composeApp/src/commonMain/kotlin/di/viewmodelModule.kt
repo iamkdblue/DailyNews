@@ -4,7 +4,7 @@ import org.koin.dsl.module
 import ui.article.ArticlesViewModel
 
 val viewmodelModule = module {
-    single {
+    single<ArticlesViewModel> {
         ArticlesViewModel(get())
     }
 }
