@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.kotlinxSerialization)
+    alias(libs.plugins.sqlDelight)
 }
 
 kotlin {
@@ -37,6 +38,7 @@ kotlin {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.android)
+            implementation(libs.sql.android.driver)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -66,12 +68,14 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.koin.compose.multiplatform)
 
+            implementation(libs.sql.coroutines.extensions)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+            implementation(libs.sql.native.driver)
         }
-
         desktopMain.dependencies {
+            implementation(libs.sql.native.driver)
             implementation(compose.desktop.currentOs)
         }
     }
@@ -112,6 +116,7 @@ android {
     }
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
+        implementation(libs.koin.android)
     }
 }
 
@@ -123,6 +128,14 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.iamkdblue.dailynews"
             packageVersion = "1.0.0"
+        }
+    }
+}
+
+sqldelight {
+    databases {
+        create(name = "DailyNewsDatabase") {
+            packageName.set("com.iamkdblue.dailynews.db")
         }
     }
 }
